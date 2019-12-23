@@ -1,32 +1,307 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div class="w-100 h-100 bg-dark position-fixed t-0">
+  <div class="position-relative">
+    <h2 class="my-5 text-center text-white">S.M.A.R.T <br> 減脂熱量估算表</h2>
 
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/avatar2/large/kristy.png">
-        </div>
-        <div class="content">
-          <a class="header">Kristy</a>
-          <div class="meta">
-            <span class="date">Joined in 2013</span>
+    <div class="my-slider">
+      <div>
+        <h3 class="text-white mx-5" style="margin-bottom: -0.2rem;">基本資料</h3>
+        <div class="bg-white mx-4 p-3 rounded-huge shadow">
+          <div class="my-4">
+            <div class="mb-3 d-flex align-items-end justify-content-between">
+              <p class="m-0">體重:</p>
+              <div class="ui transparent icon input align-items-end">
+                <input
+                  class="customize-input text-center px-2"
+                  type="number"
+                  [(ngModel)]="weight"
+                  disabled
+                />
+                <p>公斤 (kg)</p>
+              </div>
+            </div>
+            <div class="mx-2 overflow-hidden d-flex justify-content-center">
+              <div id="weight"></div>
+            </div>
           </div>
-          <div class="description">
-            Kristy is an art director living in New York.
+          <hr />
+
+          <div class="my-4">
+            <div class="mb-3 d-flex align-items-end justify-content-between">
+              <p class="m-0">身高:</p>
+              <div class="ui transparent icon input align-items-end">
+                <input
+                  class="customize-input text-center px-2"
+                  type="number"
+                  [(ngModel)]="height"
+                  disabled
+                />
+                <p>公分 (cm)</p>
+              </div>
+            </div>
+            <div class="mx-2 overflow-hidden d-flex justify-content-center">
+              <div id="height"></div>
+            </div>
           </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            22 Friends
-          </a>
+          <hr />
+
+          <div class="my-4">
+            <div class="mb-3 d-flex align-items-end justify-content-between">
+              <p class="m-0">年齡:</p>
+              <div class="ui transparent icon input align-items-end">
+                <input
+                  class="customize-input text-center px-2"
+                  type="number"
+                  [(ngModel)]="age"
+                  disabled
+                />
+                <p>歲 (years old)</p>
+              </div>
+            </div>
+            <div class="mx-2 overflow-hidden d-flex justify-content-center">
+              <div id="age"></div>
+            </div>
+          </div>
         </div>
       </div>
 
+      <div>
+        <h3 class="text-white mx-5" style="margin-bottom: -0.2rem;">身體狀況</h3>
+        <div class="bg-white mx-4 p-3 rounded-huge shadow">
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">基礎代謝率 BMR:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="bmr"
+                />
+                <p>卡 (cal)</p>
+              </div>
+            </div>
+            <small class="text-muted">在清醒的狀況但要完全靜止且在食物消化吸收後的狀態 (Post-Absorptive State)</small>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">靜止代謝率 RMR:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="rmr"
+                />
+                <p>卡 (cal)</p>
+              </div>
+            </div>
+            <small class="text-muted">身體代謝的過程需要能量，包括合成代謝過程、建構組織、分解代謝</small>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">總熱量消耗 TDEE:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="tdee"
+                />
+                <p>卡 (cal)</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">身體質量指數 BMI:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="bmi"
+                />
+                <p>(kg/m^2)</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">體脂率:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="fat"
+                />
+                <p>％</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white mx-5" style="margin-bottom: -0.2rem;">運動目標</h3>
+        <div class="bg-white mx-4 p-3 rounded-huge shadow">
+          <div class="my-4">
+            <div class="mb-3 d-flex align-items-end justify-content-between">
+              <p class="m-0">理想減少體重:</p>
+              <div class="ui transparent icon input align-items-end">
+                <input
+                  class="customize-input text-center px-2"
+                  type="number"
+                  [(ngModel)]="wantWeight"
+                  disabled
+                />
+                <p>公斤 (kg)</p>
+              </div>
+            </div>
+            <div class="mx-2 overflow-hidden d-flex justify-content-center">
+              <div id="wantWeight"></div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">減脂期限:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="deadline"
+                />
+                <p>天數</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">一週運動天數:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="daysPerWeek"
+                />
+                <p class="m-0">天 / </p>
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="minsPerTimes"
+                />
+                <p>分鐘</p>
+              </div>
+            </div>
+            <small class="d-block text-right text-muted">運動總時: {{ calcTotalTime() | number: '1.0-1' }} 分鐘</small>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="d-flex align-items-end justify-content-between">
+              <p class="m-0 pr-2">每天飲食減少:</p>
+              <div class="ui transparent icon input align-items-end border-bottom border-info">
+                <input
+                  class="customize-input text-center pr-2"
+                  type="number"
+                  [(ngModel)]="wantMeal"
+                />
+                <p>卡 (cal)</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white mx-5" style="margin-bottom: -0.2rem;">估算結果</h3>
+        <div class="bg-white mx-4 p-3 rounded-huge shadow">
+          <div class="my-4">
+            <div class="mb-3 text-right">
+              <p class="m-0"><span class="teal">7.700</span> 大卡 (kcal)</p>
+              <p class="m-0"> * 理想減少體重 <span class="teal">{{ wantWeight }}</span> 公斤 (kg)</p>
+              <p class="mb-0 mt-3 text-bigger"> = 目標減少熱量 <span class="teal">{{ calcTargetCal() | number: '1.0-1' }}</span> 卡 (cal)</p>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="mb-3 text-right">
+              <p class="m-0">每天飲食減少 <span class="teal">{{ wantMeal }}</span> 卡 (cal)</p>
+              <p class="m-0"> * 減脂期限 <span class="teal">{{ deadline }}</span> 天</p>
+              <p class="mb-0 mt-3 text-bigger"> = 飲食總減少 <span class="teal">{{ calcTargetMeal() | number: '1.0-1' }}</span> 卡 (cal)</p>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="mb-3 text-right">
+              <p class="m-0">目標減少熱量 <span class="teal">{{ calcTargetCal() | number: '1.0-1' }}</span> 卡 (cal)</p>
+              <p class="m-0"> - 飲食總減少  <span class="teal">{{ calcTargetMeal() | number: '1.0-1' }}</span> 卡 (cal)</p>
+              <p class="mb-0 mt-3 text-bigger"> = 運動赤字 <span class="teal">{{ calcNeedEx() | number: '1.0-1' }}</span> 卡 (cal)</p>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="mb-3 text-right">
+              <p class="m-0">運動赤字  <span class="teal">{{ calcNeedEx() | number: '1.0-1' }}</span> 卡 (cal)</p>
+              <p class="m-0"> / 運動總時  <span class="teal">{{ calcTotalTime() | number: '1.0-1' }}</span> 分鐘 (min)</p>
+              <p class="mb-0 mt-3 text-bigger"> = 運動每分鐘要消耗 <span class="teal">{{ calcNeedCalPerMin() | number: '1.0-1' }}</span> 卡 (cal)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-white mx-5" style="margin-bottom: -0.2rem;">身體氧氣代謝當量 MET</h3>
+        <div class="bg-white mx-4 p-3 rounded-huge shadow">
+          <div class="my-4">
+            <div class="mb-3 text-right">
+              <p class="m-0"> <span class="teal">3.5</span> * 體重  <span class="teal">{{ weight }}</span> 公斤 (kg)</p>
+              <p class="m-0"> <span class="teal">{{ weight*3.5 }}</span> 換算成大卡</p>
+              <p class="m-0"> <span class="teal">{{ weight*3.5/1000 | number: '1.0-1' }}</span> *  <span class="teal">5</span> </p>
+              <p class="mb-0 mt-3 text-bigger"> 1 MET = <span class="teal">{{ calcMET() | number: '1.0-1' }}</span> 卡</p>
+            </div>
+          </div>
+          <hr />
+
+          <div class="my-4">
+            <div class="mb-3 text-right">
+              <p class="m-0">運動每分鐘要消耗  <span class="teal">{{ calcNeedCalPerMin() | number: '1.0-1' }}</span> 卡 (cal)</p>
+              <p class="m-0"> / 1 MET  <span class="teal">{{ calcMET() | number: '1.0-1' }}</span> 卡 (cal)</p>
+              <p class="mb-0 mt-3 text-bigger"> = 每次運動所需強度 <span class="teal">{{ calcNeedCalPerMin()/calcMET() | number: '1.0-1' }}</span> MET</p>
+            </div>
+          </div>
+
+          <div class="mt-5 text-center">
+            <hr>
+            <button class="ui button teal" (click)="reset()">重新再算一次！</button>
+            <!-- <button class="ui button" (click)="testing()">測試用</button> -->
+          </div>
+        </div>
+      </div>
+
+
     </div>
+
+    <button class="ui button circular icon bg-white p-2 shadow position-absolute l-0" style="top: 45vh" (click)="slider.goTo('prev')">
+      <i class="arrow large left icon"></i>
+    </button>
+
+    <button class="ui button circular icon bg-white p-2 shadow position-absolute r-0" style="top: 45vh" (click)="slider.goTo('next')">
+      <i class="arrow large right icon"></i>
+    </button>
   </div>
 </div>
-
-
-
 <router-outlet></router-outlet>
+
+<p class="text-white position-fixed b-0 r-0 mr-3">Power by JasonXDDD</p>
