@@ -1,8 +1,8 @@
-<div class="w-100 h-100 bg-dark overflow-auto">
-  <div class="position-relative">
+<div class="w-100 h-100 bg-dark overflow-auto d-flex align-items-center">
+  <div class="position-relative w-100">
     <!-- <h2 class="my-3 text-center text-white">S.M.A.R.T <br> 減脂熱量估算表</h2> -->
 
-    <div class="my-slider my-3">
+    <div class="my-slider">
       <div>
         <h3 class="text-white mx-5" style="margin-bottom: -0.2rem;">基本資料</h3>
         <div class="bg-white mx-4 p-3 rounded-huge shadow">
@@ -293,11 +293,11 @@
 
     </div>
 
-    <button class="ui button circular icon bg-white p-2 shadow position-absolute l-0" style="top: 45vh" (click)="slider.goTo('prev')">
+    <button class="ui button circular icon bg-white p-2 shadow position-absolute l-0" style="top: 45%" (click)="slider.goTo('prev')">
       <i class="arrow large left icon"></i>
     </button>
 
-    <button class="ui button circular icon bg-white p-2 shadow position-absolute r-0" style="top: 45vh" (click)="slider.goTo('next')">
+    <button class="ui button circular icon bg-white p-2 shadow position-absolute r-0" style="top: 45%" (click)="slider.goTo('next')">
       <i class="arrow large right icon"></i>
     </button>
   </div>
