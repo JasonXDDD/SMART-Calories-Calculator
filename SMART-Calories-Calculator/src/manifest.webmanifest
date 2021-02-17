@@ -1,9 +1,11 @@
 {
-  "name": "SMART-Calories-Calculator",
-  "short_name": "SMART-Calories-Calculator",
+  "name": "SMART Calories Calculator",
+  "short_name": "熱量計算",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
+  "dir": "ltr",
+  "lang": "zh-Hant-TW",
   "scope": "/",
   "start_url": "/",
   "icons": [
